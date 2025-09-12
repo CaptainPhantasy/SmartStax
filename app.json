@@ -1,26 +1,29 @@
 {
   "expo": {
     "name": "SmartStack",
-    "slug": "smartstack",
+    "slug": "smartstacker",
     "scheme": "smartstack",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "owner": "captainphantasy",
+    "owner": "legacyaispace",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.captainphantasy.smartstack",
-      "buildNumber": "1"
+      "bundleIdentifier": "com.legacyaispace.smartstacker",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "edgeToEdgeEnabled": true,
-      "package": "com.captainphantasy.smartstack",
+      "package": "com.legacyaispace.smartstacker",
       "versionCode": 1
     },
     "extra": {
       "eas": {
-        "projectId": "b6425e34-9acb-457b-99f7-38ce189691b6"
+        "projectId": "70cb4a8b-8bdc-47d8-9bda-0e70c17deaf3"
       }
     }
   }
