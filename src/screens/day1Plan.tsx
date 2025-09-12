@@ -128,80 +128,80 @@ ${stack.example_projects.map((p) => `- **${p.name}**: ${p.description} (${p.comp
   }
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white dark:bg-gray-900" style={{ paddingTop: insets.top }}>
       <View className="px-5 py-6 gap-4">
-        <View className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <View className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
           <View className="flex-row items-center justify-between mb-2">
-            <Text className="text-blue-900 font-semibold text-lg flex-1">{primary.candidate.title}</Text>
+            <Text className="text-blue-900 dark:text-blue-100 font-semibold text-lg flex-1">{primary.candidate.title}</Text>
             {selectedStackId && (
-              <View className="bg-green-100 px-2 py-1 rounded-full">
-                <Text className="text-green-800 text-xs font-medium">Your Choice</Text>
+              <View className="bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-full">
+                <Text className="text-green-800 dark:text-green-300 text-xs font-medium">Your Choice</Text>
               </View>
             )}
           </View>
-          <Text className="text-blue-800 text-sm mb-3">{primary.candidate.summary}</Text>
+          <Text className="text-blue-800 dark:text-blue-200 text-sm mb-3">{primary.candidate.summary}</Text>
           <View className="flex-row flex-wrap gap-2">
             {primary.candidate.tech_stack.programming_languages.map((lang) => (
-              <View key={lang} className="bg-blue-100 px-2 py-1 rounded-full">
-                <Text className="text-blue-800 text-xs font-medium">{lang}</Text>
+              <View key={lang} className="bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded-full">
+                <Text className="text-blue-800 dark:text-blue-200 text-xs font-medium">{lang}</Text>
               </View>
             ))}
           </View>
         </View>
 
-        <View className="bg-gray-50 rounded-xl p-4">
-          <Text className="text-gray-900 font-semibold mb-2">Technology Stack</Text>
+        <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+          <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Technology Stack</Text>
           <View className="gap-2">
             <View className="flex-row justify-between">
-              <Text className="text-gray-600">Frontend:</Text>
-              <Text className="text-gray-900 font-medium">{primary.candidate.tech_stack.frontend_framework}</Text>
+              <Text className="text-gray-600 dark:text-gray-400">Frontend:</Text>
+              <Text className="text-gray-900 dark:text-gray-100 font-medium">{primary.candidate.tech_stack.frontend_framework}</Text>
             </View>
             {primary.candidate.tech_stack.backend_framework && (
               <View className="flex-row justify-between">
-                <Text className="text-gray-600">Backend:</Text>
-                <Text className="text-gray-900 font-medium">{primary.candidate.tech_stack.backend_framework}</Text>
+                <Text className="text-gray-600 dark:text-gray-400">Backend:</Text>
+                <Text className="text-gray-900 dark:text-gray-100 font-medium">{primary.candidate.tech_stack.backend_framework}</Text>
               </View>
             )}
             <View className="flex-row justify-between">
-              <Text className="text-gray-600">Database:</Text>
-              <Text className="text-gray-900 font-medium">{primary.candidate.tech_stack.database}</Text>
+              <Text className="text-gray-600 dark:text-gray-400">Database:</Text>
+              <Text className="text-gray-900 dark:text-gray-100 font-medium">{primary.candidate.tech_stack.database}</Text>
             </View>
             <View className="flex-row justify-between">
-              <Text className="text-gray-600">Authentication:</Text>
-              <Text className="text-gray-900 font-medium">{primary.candidate.tech_stack.authentication}</Text>
+              <Text className="text-gray-600 dark:text-gray-400">Authentication:</Text>
+              <Text className="text-gray-900 dark:text-gray-100 font-medium">{primary.candidate.tech_stack.authentication}</Text>
             </View>
           </View>
         </View>
 
-        <View className="bg-gray-50 rounded-xl p-4">
-          <Text className="text-gray-900 font-semibold mb-2">Architecture Diagram</Text>
+        <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+          <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Architecture Diagram</Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <Text className="text-gray-600 font-mono text-xs" style={{ minWidth: 300 }}>
+            <Text className="text-gray-600 dark:text-gray-400 font-mono text-xs" style={{ minWidth: 300 }}>
               {mermaid}
             </Text>
           </ScrollView>
         </View>
 
-        <View className="bg-gray-50 rounded-xl p-4">
-          <Text className="text-gray-900 font-semibold mb-2">Initial Setup Steps</Text>
+        <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+          <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Initial Setup Steps</Text>
           {checklist.slice(0, 5).map((x, index) => (
-            <Text key={x} className="text-gray-600 mb-1">
+            <Text key={x} className="text-gray-600 dark:text-gray-400 mb-1">
               {index + 1}. {x}
             </Text>
           ))}
         </View>
 
-        <View className="bg-gray-50 rounded-xl p-4">
-          <Text className="text-gray-900 font-semibold mb-2">Week 1 Implementation Plan</Text>
+        <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+          <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Week 1 Implementation Plan</Text>
           {day7.map((x, index) => (
-            <Text key={x} className="text-gray-600 mb-1">
+            <Text key={x} className="text-gray-600 dark:text-gray-400 mb-1">
               Day {index + 1}: {x}
             </Text>
           ))}
         </View>
 
-        <View className="bg-gray-50 rounded-xl p-4">
-          <Text className="text-gray-900 font-semibold mb-2">Key Features You'll Get</Text>
+        <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+          <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Key Features You'll Get</Text>
           {primary.candidate.specific_features.slice(0, 4).map((feature) => (
             <Text key={feature} className="text-gray-600 mb-1">• {feature}</Text>
           ))}
@@ -212,10 +212,10 @@ ${stack.example_projects.map((p) => `- **${p.name}**: ${p.description} (${p.comp
           </Pressable>
           
           <Pressable 
-            className="border border-gray-300 rounded-xl py-4 items-center" 
+            className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl py-4 items-center" 
             onPress={() => navigation.navigate("recommend")}
           > 
-            <Text className="text-gray-900 font-semibold">Change Selection</Text>
+            <Text className="text-gray-900 dark:text-gray-100 font-semibold">Change Selection</Text>
           </Pressable>
         </View>
         <Pressable className="bg-gray-900 rounded-xl py-4 items-center" onPress={exportPacket}> 

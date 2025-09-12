@@ -75,7 +75,7 @@ function ComparisonCard({ recommendation, rank, cardWidth }: {
 
   return (
     <View 
-      className="bg-white border border-gray-200 rounded-xl p-5 mr-4 shadow-sm" 
+      className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 mr-4 shadow-sm" 
       style={{ width: cardWidth, minHeight: 420 }}
     >
       {/* Header */}
@@ -90,7 +90,7 @@ function ComparisonCard({ recommendation, rank, cardWidth }: {
           </View>
         </View>
         
-        <Text className="text-lg font-bold text-gray-900 mb-2" numberOfLines={2} ellipsizeMode="tail">
+        <Text className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2" numberOfLines={2} ellipsizeMode="tail">
           {recommendation.candidate.title}
         </Text>
       </View>
@@ -101,10 +101,10 @@ function ComparisonCard({ recommendation, rank, cardWidth }: {
           <View key={item.label} className="mb-4">
             <View className="flex-row items-center gap-2 mb-2">
               <Ionicons name={item.icon} size={16} color="#6b7280" />
-              <Text className="text-gray-600 text-sm font-medium">{item.label}</Text>
+              <Text className="text-gray-600 dark:text-gray-400 text-sm font-medium">{item.label}</Text>
             </View>
             <Text 
-              className={item.label === "TCO Level" ? `font-semibold ${costColor}` : "text-gray-900 font-medium"}
+              className={item.label === "TCO Level" ? `font-semibold ${costColor}` : "text-gray-900 dark:text-gray-100 font-medium"}
               numberOfLines={4}
               ellipsizeMode="tail"
               style={{ lineHeight: 20, paddingLeft: 24 }}
@@ -140,7 +140,7 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
   const costColor = costColors[recommendation.tco_band as keyof typeof costColors];
 
   return (
-    <Pressable onPress={onSelect} className={isSelected ? "border-2 border-blue-600 bg-blue-50 rounded-xl p-5 mb-4" : "border border-gray-200 rounded-xl p-5 mb-4"}>
+    <Pressable onPress={onSelect} className={isSelected ? "border-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 mb-4" : "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-5 mb-4"}>
       <View className="flex-row items-start justify-between mb-3" style={{ flexWrap: 'wrap', gap: 8 }}>
         <View className={`px-3 py-1 rounded-full ${badge.color}`} style={{ flexShrink: 0 }}>
           <Text className="text-sm font-medium">{badge.label}</Text>
@@ -152,7 +152,7 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
       </View>
 
       <Text 
-        className={isSelected ? "text-xl font-bold text-blue-900 mb-2" : "text-xl font-bold text-gray-900 mb-2"}
+        className={isSelected ? "text-xl font-bold text-blue-900 dark:text-blue-100 mb-2" : "text-xl font-bold text-gray-900 dark:text-gray-100 mb-2"}
         numberOfLines={2}
         ellipsizeMode="tail"
       >
@@ -160,7 +160,7 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
       </Text>
       
       <Text 
-        className={isSelected ? "text-blue-700 mb-5" : "text-gray-700 mb-5"}
+        className={isSelected ? "text-blue-700 dark:text-blue-300 mb-5" : "text-gray-700 dark:text-gray-300 mb-5"}
         numberOfLines={6}
         ellipsizeMode="tail"
         style={{ lineHeight: 20 }}
@@ -169,47 +169,47 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
       </Text>
 
       <View className="mb-5">
-        <Text className={isSelected ? "text-blue-900 font-semibold mb-3" : "text-gray-900 font-semibold mb-3"}>Technology Stack</Text>
+        <Text className={isSelected ? "text-blue-900 dark:text-blue-100 font-semibold mb-3" : "text-gray-900 dark:text-gray-100 font-semibold mb-3"}>Technology Stack</Text>
         <View className="gap-2 mb-4">
           <View className="flex-row justify-between">
-            <Text className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}>Frontend</Text>
-            <Text className={isSelected ? "text-blue-900 text-sm font-medium" : "text-gray-900 text-sm font-medium"}>{recommendation.candidate.tech_stack?.frontend_framework || "Not specified"}</Text>
+            <Text className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}>Frontend</Text>
+            <Text className={isSelected ? "text-blue-900 dark:text-blue-100 text-sm font-medium" : "text-gray-900 dark:text-gray-100 text-sm font-medium"}>{recommendation.candidate.tech_stack?.frontend_framework || "Not specified"}</Text>
           </View>
           {recommendation.candidate.tech_stack?.backend_framework && (
             <View className="flex-row justify-between">
-              <Text className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}>Backend</Text>
-              <Text className={isSelected ? "text-blue-900 text-sm font-medium" : "text-gray-900 text-sm font-medium"}>{recommendation.candidate.tech_stack.backend_framework}</Text>
+              <Text className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}>Backend</Text>
+              <Text className={isSelected ? "text-blue-900 dark:text-blue-100 text-sm font-medium" : "text-gray-900 dark:text-gray-100 text-sm font-medium"}>{recommendation.candidate.tech_stack.backend_framework}</Text>
             </View>
           )}
           <View className="flex-row justify-between">
-            <Text className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}>Database</Text>
-            <Text className={isSelected ? "text-blue-900 text-sm font-medium" : "text-gray-900 text-sm font-medium"}>{recommendation.candidate.tech_stack?.database || "Not specified"}</Text>
+            <Text className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}>Database</Text>
+            <Text className={isSelected ? "text-blue-900 dark:text-blue-100 text-sm font-medium" : "text-gray-900 dark:text-gray-100 text-sm font-medium"}>{recommendation.candidate.tech_stack?.database || "Not specified"}</Text>
           </View>
           <View className="flex-row justify-between">
-            <Text className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}>Languages</Text>
-            <Text className={isSelected ? "text-blue-900 text-sm font-medium" : "text-gray-900 text-sm font-medium"}>{recommendation.candidate.tech_stack?.programming_languages?.join(", ") || "Not specified"}</Text>
+            <Text className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}>Languages</Text>
+            <Text className={isSelected ? "text-blue-900 dark:text-blue-100 text-sm font-medium" : "text-gray-900 dark:text-gray-100 text-sm font-medium"}>{recommendation.candidate.tech_stack?.programming_languages?.join(", ") || "Not specified"}</Text>
           </View>
         </View>
 
-        <Text className={isSelected ? "text-blue-900 font-semibold mb-3" : "text-gray-900 font-semibold mb-3"}>Key Features</Text>
+        <Text className={isSelected ? "text-blue-900 dark:text-blue-100 font-semibold mb-3" : "text-gray-900 dark:text-gray-100 font-semibold mb-3"}>Key Features</Text>
         <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 10 }}>
           {(recommendation.candidate.specific_features || recommendation.candidate.components).slice(0, 4).map((feature: string, i: number) => (
-            <View key={i} className={isSelected ? "bg-blue-100 px-3 py-2 rounded-full" : "bg-gray-100 px-3 py-2 rounded-full"}>
-              <Text className={isSelected ? "text-blue-800 text-sm" : "text-gray-700 text-sm"} numberOfLines={2} ellipsizeMode="tail">{feature}</Text>
+            <View key={i} className={isSelected ? "bg-blue-100 dark:bg-blue-900/30 px-3 py-2 rounded-full" : "bg-gray-100 dark:bg-gray-700 px-3 py-2 rounded-full"}>
+              <Text className={isSelected ? "text-blue-800 dark:text-blue-200 text-sm" : "text-gray-700 dark:text-gray-300 text-sm"} numberOfLines={2} ellipsizeMode="tail">{feature}</Text>
             </View>
           ))}
         </View>
       </View>
 
       <View className="mb-5">
-        <Text className={isSelected ? "text-blue-900 font-semibold mb-3" : "text-gray-900 font-semibold mb-3"}>Why this works for you:</Text>
+        <Text className={isSelected ? "text-blue-900 dark:text-blue-100 font-semibold mb-3" : "text-gray-900 dark:text-gray-100 font-semibold mb-3"}>Why this works for you:</Text>
         {recommendation.rationale.slice(0, 2).map((reason: string, i: number) => (
           <View key={i} className="flex-row items-start gap-3 mb-2">
             <View style={{ flexShrink: 0, marginTop: 2 }}>
               <Ionicons name="checkmark-circle" size={16} color="#10b981" />
             </View>
             <Text 
-              className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}
+              className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}
               style={{ flex: 1, minWidth: 0, lineHeight: 18 }}
               numberOfLines={4}
               ellipsizeMode="tail"
@@ -222,14 +222,14 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
 
       {recommendation.risks.length > 0 && (
         <View className="mb-4">
-          <Text className={isSelected ? "text-blue-900 font-semibold mb-3" : "text-gray-900 font-semibold mb-3"}>Things to consider:</Text>
+          <Text className={isSelected ? "text-blue-900 dark:text-blue-100 font-semibold mb-3" : "text-gray-900 dark:text-gray-100 font-semibold mb-3"}>Things to consider:</Text>
           {recommendation.risks.slice(0, 2).map((risk: string, i: number) => (
             <View key={i} className="flex-row items-start gap-3 mb-2">
               <View style={{ flexShrink: 0, marginTop: 2 }}>
                 <Ionicons name="alert-circle-outline" size={16} color="#f59e0b" />
               </View>
               <Text 
-                className={isSelected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}
+                className={isSelected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}
                 style={{ flex: 1, minWidth: 0, lineHeight: 18 }}
                 numberOfLines={4}
                 ellipsizeMode="tail"
@@ -242,10 +242,10 @@ function RecommendationCard({ recommendation, rank, isSelected, onSelect }: {
       )}
 
       {isSelected && (
-        <View className="mt-4 pt-4 border-t border-blue-200">
+        <View className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
           <View className="flex-row items-center gap-2">
             <Ionicons name="star" size={16} color="#2563eb" />
-            <Text className="text-blue-900 font-medium">Selected as your recommendation</Text>
+            <Text className="text-blue-900 dark:text-blue-100 font-medium">Selected as your recommendation</Text>
           </View>
         </View>
       )}
@@ -297,19 +297,19 @@ export default function RecommendScreen({ navigation }: NativeStackScreenProps<R
   }, [selectedStackId, top, selectedIndex]);
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white dark:bg-gray-900" style={{ paddingTop: insets.top }}>
       <View className="px-5 py-6">
         <View className="mb-6">
-          <Text className="text-2xl font-bold text-gray-900 mb-2">Your Recommendations</Text>
-          <Text className="text-gray-600">Based on your app type, budget, and preferences. Tap to select your preferred option.</Text>
+          <Text className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Your Recommendations</Text>
+          <Text className="text-gray-600 dark:text-gray-400">Based on your app type, budget, and preferences. Tap to select your preferred option.</Text>
         </View>
 
-        <View className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+        <View className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6">
           <View className="flex-row items-center gap-2 mb-2">
             <Ionicons name="bulb-outline" size={20} color="#2563eb" />
-            <Text className="text-blue-900 font-semibold">Pro tip</Text>
+            <Text className="text-blue-900 dark:text-blue-100 font-semibold">Pro tip</Text>
           </View>
-          <Text className="text-blue-800 text-sm">The top recommendation is personalized for your specific needs, but all options will work great for your {profile.app_type} app!</Text>
+          <Text className="text-blue-800 dark:text-blue-200 text-sm">The top recommendation is personalized for your specific needs, but all options will work great for your {profile.app_type} app!</Text>
         </View>
 
           {top.map((recommendation, idx) => (
@@ -323,8 +323,8 @@ export default function RecommendScreen({ navigation }: NativeStackScreenProps<R
           ))}
 
         <View className="mt-4">
-          <Pressable className="border border-gray-300 rounded-xl py-3 items-center" onPress={() => setShowCompare((s) => !s)}> 
-            <Text className="text-gray-900 font-semibold">{showCompare ? "Hide Compare" : "Compare Stacks"}</Text>
+          <Pressable className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-xl py-3 items-center" onPress={() => setShowCompare((s) => !s)}> 
+            <Text className="text-gray-900 dark:text-gray-100 font-semibold">{showCompare ? "Hide Compare" : "Compare Stacks"}</Text>
           </Pressable>
         </View>
 
@@ -332,8 +332,8 @@ export default function RecommendScreen({ navigation }: NativeStackScreenProps<R
           <View className="mt-4">
             {/* Header */}
             <View className="mb-5">
-              <Text className="text-gray-900 font-semibold text-lg mb-2">Compare Stacks</Text>
-              <Text className="text-gray-600 text-base leading-6">Swipe to compare different technology stacks side by side</Text>
+              <Text className="text-gray-900 dark:text-gray-100 font-semibold text-lg mb-2">Compare Stacks</Text>
+              <Text className="text-gray-600 dark:text-gray-400 text-base leading-6">Swipe to compare different technology stacks side by side</Text>
             </View>
 
             {/* Horizontal Scrollable Cards */}
@@ -370,7 +370,7 @@ export default function RecommendScreen({ navigation }: NativeStackScreenProps<R
 
             {/* Navigation Info */}
             <View className="flex-row justify-center items-center mt-3">
-              <Text className="text-gray-500 text-base">
+              <Text className="text-gray-500 dark:text-gray-400 text-base">
                 {currentCompareIndex + 1} of {top.length} • {top[currentCompareIndex]?.candidate.title}
               </Text>
             </View>

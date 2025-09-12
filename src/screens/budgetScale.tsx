@@ -74,7 +74,7 @@ function PresetCard({ title, description, selected, onPress }: {
       <View className="flex-row items-start gap-3">
         <View className="flex-1" style={{ minWidth: 0 }}>
           <Text 
-            className={selected ? "text-blue-900 font-semibold mb-1" : "text-gray-900 font-semibold mb-1"}
+            className={selected ? "text-blue-900 dark:text-blue-100 font-semibold mb-1" : "text-gray-900 dark:text-gray-100 font-semibold mb-1"}
             numberOfLines={2}
             ellipsizeMode="tail"
           >
@@ -172,13 +172,14 @@ export default function BudgetScaleScreen({ navigation }: NativeStackScreenProps
             onChangeText={(t) => setBudget({ year1_ceiling: parseInt(t || "0", 10) })} 
             className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl px-4 py-3 text-lg text-gray-900 dark:text-gray-100"
             placeholder="e.g. 5000"
+            placeholderTextColor="#9CA3AF"
           />
           <Text className="text-gray-500 dark:text-gray-400 text-xs mt-1">This helps us plan for growth and scaling costs</Text>
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Expected app usage</Text>
-          <Text className="text-gray-600 text-sm mb-3">Choose the scenario that best matches your expectations</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Expected app usage</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">Choose the scenario that best matches your expectations</Text>
           
           {presets.map((preset) => (
             <PresetCard
@@ -198,27 +199,29 @@ export default function BudgetScaleScreen({ navigation }: NativeStackScreenProps
         </View>
 
         {!selectedPreset && (
-          <View className="bg-gray-50 rounded-xl p-4">
-            <Text className="text-gray-900 font-semibold mb-2">Custom Usage</Text>
+          <View className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+            <Text className="text-gray-900 dark:text-gray-100 font-semibold mb-2">Custom Usage</Text>
             <View className="gap-3">
               <View>
-                <Text className="text-gray-700 mb-1">Monthly active users</Text>
+                <Text className="text-gray-700 dark:text-gray-300 mb-1">Monthly active users</Text>
                 <TextInput 
                   keyboardType="numeric" 
                   value={String(budget.usage.mau)} 
                   onChangeText={(t) => setBudget({ usage: { ...budget.usage, mau: parseInt(t || "0", 10) } })} 
-                  className="border border-gray-200 rounded-md px-3 py-2"
+                  className="border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md px-3 py-2"
                   placeholder="e.g. 5000"
+                  placeholderTextColor="#9CA3AF"
                 />
               </View>
               <View>
-                <Text className="text-gray-700 mb-1">Peak users at same time</Text>
+                <Text className="text-gray-700 dark:text-gray-300 mb-1">Peak users at same time</Text>
                 <TextInput 
                   keyboardType="numeric" 
                   value={String(budget.usage.peak_concurrent)} 
                   onChangeText={(t) => setBudget({ usage: { ...budget.usage, peak_concurrent: parseInt(t || "0", 10) } })} 
-                  className="border border-gray-200 rounded-md px-3 py-2"
+                  className="border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md px-3 py-2"
                   placeholder="e.g. 300"
+                  placeholderTextColor="#9CA3AF"
                 />
               </View>
             </View>

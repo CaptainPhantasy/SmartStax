@@ -8,7 +8,7 @@ import useInterviewStore from "../state/interviewStore";
 
 function FeatureCard({ icon, title, description, selected, onPress, badge }: { icon: string; title: string; description: string; selected: boolean; onPress: () => void; badge?: string }) {
   return (
-    <Pressable onPress={onPress} className={selected ? "border-2 border-blue-600 bg-blue-50 rounded-xl p-4 mb-3" : "border border-gray-200 rounded-xl p-4 mb-3"}>
+    <Pressable onPress={onPress} className={selected ? "border-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-3" : "border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl p-4 mb-3"}>
       <View className="flex-row items-start gap-3">
         <View style={{ flexShrink: 0 }}>
           <Ionicons name={icon as any} size={24} color={selected ? "#2563eb" : "#6b7280"} />
@@ -16,7 +16,7 @@ function FeatureCard({ icon, title, description, selected, onPress, badge }: { i
         <View className="flex-1" style={{ minWidth: 0 }}>
           <View className="flex-row items-center gap-2 mb-1" style={{ flexWrap: 'wrap' }}>
             <Text 
-              className={selected ? "text-blue-900 font-semibold" : "text-gray-900 font-semibold"}
+              className={selected ? "text-blue-900 dark:text-blue-100 font-semibold" : "text-gray-900 dark:text-gray-100 font-semibold"}
               numberOfLines={2}
               ellipsizeMode="tail"
               style={{ flex: 1, minWidth: 100 }}
@@ -24,13 +24,13 @@ function FeatureCard({ icon, title, description, selected, onPress, badge }: { i
               {title}
             </Text>
             {badge && (
-              <View className="bg-orange-100 px-2 py-1 rounded-full" style={{ flexShrink: 0 }}>
-                <Text className="text-orange-800 text-xs font-medium">{badge}</Text>
+              <View className="bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-full" style={{ flexShrink: 0 }}>
+                <Text className="text-orange-800 dark:text-orange-300 text-xs font-medium">{badge}</Text>
               </View>
             )}
           </View>
           <Text 
-            className={selected ? "text-blue-700 text-sm" : "text-gray-600 text-sm"}
+            className={selected ? "text-blue-700 dark:text-blue-300 text-sm" : "text-gray-600 dark:text-gray-400 text-sm"}
             numberOfLines={3}
             ellipsizeMode="tail"
           >
@@ -51,20 +51,20 @@ function PlatformCard({ icon, title, description, selected, onPress }: { icon: s
   return (
     <Pressable 
       onPress={onPress} 
-      className={selected ? "border-2 border-blue-600 bg-blue-50 rounded-xl p-4" : "border border-gray-200 rounded-xl p-4"}
+      className={selected ? "border-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4" : "border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl p-4"}
       style={{ minHeight: 120 }}
     >
       <View className="items-center justify-center gap-2" style={{ flex: 1 }}>
         <Ionicons name={icon as any} size={32} color={selected ? "#2563eb" : "#6b7280"} />
         <Text 
-          className={selected ? "text-blue-900 font-semibold text-center" : "text-gray-900 font-semibold text-center"}
+          className={selected ? "text-blue-900 dark:text-blue-100 font-semibold text-center" : "text-gray-900 dark:text-gray-100 font-semibold text-center"}
           numberOfLines={2}
           ellipsizeMode="tail"
         >
           {title}
         </Text>
         <Text 
-          className={selected ? "text-blue-700 text-xs text-center" : "text-gray-600 text-xs text-center"}
+          className={selected ? "text-blue-700 dark:text-blue-300 text-xs text-center" : "text-gray-600 dark:text-gray-400 text-xs text-center"}
           numberOfLines={2}
           ellipsizeMode="tail"
         >
@@ -78,8 +78,8 @@ function PlatformCard({ icon, title, description, selected, onPress }: { icon: s
 
 function Chip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} className={selected ? "px-4 py-2 rounded-full bg-blue-600 mr-2 mb-2" : "px-4 py-2 rounded-full bg-gray-100 mr-2 mb-2"}>
-      <Text className={selected ? "text-white font-medium" : "text-gray-900 font-medium"}>{label}</Text>
+    <Pressable onPress={onPress} className={selected ? "px-4 py-2 rounded-full bg-blue-600 mr-2 mb-2" : "px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 mr-2 mb-2"}>
+      <Text className={selected ? "text-white font-medium" : "text-gray-900 dark:text-gray-100 font-medium"}>{label}</Text>
     </Pressable>
   );
 }
@@ -101,15 +101,15 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
   };
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white dark:bg-gray-900" style={{ paddingTop: insets.top }}>
       <View className="px-5 py-6 gap-6">
         <View>
-          <Text className="text-2xl font-bold text-gray-900 mb-2">App Features</Text>
-          <Text className="text-gray-600">Select the features your app needs. Don't worry - you can always add more later!</Text>
+          <Text className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">App Features</Text>
+          <Text className="text-gray-600 dark:text-gray-400">Select the features your app needs. Don't worry - you can always add more later!</Text>
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-3">Where will your app work?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Where will your app work?</Text>
           <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 12 }}>
             <View style={{ width: '48%' }}>
               <PlatformCard
@@ -151,7 +151,7 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-3">Core Features</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Core Features</Text>
           <FeatureCard
             icon="person-circle-outline"
             title="User Accounts & Login"
@@ -184,8 +184,8 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Search Capability</Text>
-          <Text className="text-gray-600 text-sm mb-3">How important is search for your app?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Search Capability</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">How important is search for your app?</Text>
           <View className="flex-row flex-wrap">
             <Chip label="No search needed" selected={brief.features.search === "none"} onPress={() => setBrief({ features: { ...brief.features, search: "none" } })} />
             <Chip label="Basic search" selected={brief.features.search === "basic"} onPress={() => setBrief({ features: { ...brief.features, search: "basic" } })} />
@@ -194,8 +194,8 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">AI Features</Text>
-          <Text className="text-gray-600 text-sm mb-3">Do you want AI-powered features?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">AI Features</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">Do you want AI-powered features?</Text>
           <View className="flex-row flex-wrap">
             <Chip label="No AI" selected={brief.features.ai === "none"} onPress={() => setBrief({ features: { ...brief.features, ai: "none" } })} />
             <Chip label="Smart suggestions" selected={brief.features.ai === "assist"} onPress={() => setBrief({ features: { ...brief.features, ai: "assist" } as any })} />
@@ -205,8 +205,8 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Offline Use</Text>
-          <Text className="text-gray-600 text-sm mb-3">Should your app work without internet?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Offline Use</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">Should your app work without internet?</Text>
           <View className="flex-row flex-wrap">
             <Chip label="Always online" selected={brief.features.offline === "none"} onPress={() => setBrief({ features: { ...brief.features, offline: "none" } as any })} />
             <Chip label="Nice to have" selected={brief.features.offline === "nice_to_have"} onPress={() => setBrief({ features: { ...brief.features, offline: "nice_to_have" } as any })} />
@@ -215,8 +215,8 @@ export default function ProductBriefScreen({ navigation }: NativeStackScreenProp
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Where are your users?</Text>
-          <Text className="text-gray-600 text-sm mb-3">This affects data storage and performance</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Where are your users?</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">This affects data storage and performance</Text>
           <View className="flex-row flex-wrap">
             <Chip label="United States" selected={brief.regions.includes("us")} onPress={() => setBrief({ regions: brief.regions.includes("us") ? brief.regions.filter((x) => x !== "us") : [...brief.regions, "us"] })} />
             <Chip label="Europe" selected={brief.regions.includes("eu")} onPress={() => setBrief({ regions: brief.regions.includes("eu") ? brief.regions.filter((x) => x !== "eu") : [...brief.regions, "eu"] })} />

@@ -15,11 +15,11 @@ function ComplianceCard({ icon, title, description, whenNeeded, selected, onPres
   onPress: () => void;
   level?: "required" | "optional" | "recommended";
 }) {
-  const levelColor = level === "required" ? "bg-red-100 text-red-800" : level === "recommended" ? "bg-yellow-100 text-yellow-800" : "bg-gray-100 text-gray-600";
+  const levelColor = level === "required" ? "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300" : level === "recommended" ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300" : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300";
   const levelText = level === "required" ? "Required" : level === "recommended" ? "Recommended" : "Optional";
   
   return (
-    <Pressable onPress={onPress} className={selected ? "border-2 border-blue-600 bg-blue-50 rounded-xl p-4 mb-3" : "border border-gray-200 rounded-xl p-4 mb-3"}>
+    <Pressable onPress={onPress} className={selected ? "border-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-3" : "border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl p-4 mb-3"}>
       <View className="flex-row items-start gap-3">
         <View style={{ flexShrink: 0 }}>
           <Ionicons name={icon as any} size={24} color={selected ? "#2563eb" : "#6b7280"} />
@@ -27,7 +27,7 @@ function ComplianceCard({ icon, title, description, whenNeeded, selected, onPres
         <View className="flex-1" style={{ minWidth: 0 }}>
           <View className="flex-row items-center gap-2 mb-1" style={{ flexWrap: 'wrap' }}>
             <Text 
-              className={selected ? "text-blue-900 font-semibold" : "text-gray-900 font-semibold"}
+              className={selected ? "text-blue-900 dark:text-blue-100 font-semibold" : "text-gray-900 dark:text-gray-100 font-semibold"}
               numberOfLines={2}
               ellipsizeMode="tail"
               style={{ flex: 1, minWidth: 120 }}
@@ -41,14 +41,14 @@ function ComplianceCard({ icon, title, description, whenNeeded, selected, onPres
             )}
           </View>
           <Text 
-            className={selected ? "text-blue-700 text-sm mb-2" : "text-gray-600 text-sm mb-2"}
+            className={selected ? "text-blue-700 dark:text-blue-300 text-sm mb-2" : "text-gray-600 dark:text-gray-400 text-sm mb-2"}
             numberOfLines={3}
             ellipsizeMode="tail"
           >
             {description}
           </Text>
           <Text 
-            className={selected ? "text-blue-600 text-xs" : "text-gray-500 text-xs"}
+            className={selected ? "text-blue-600 dark:text-blue-400 text-xs" : "text-gray-500 dark:text-gray-400 text-xs"}
             numberOfLines={2}
             ellipsizeMode="tail"
           >
@@ -67,8 +67,8 @@ function ComplianceCard({ icon, title, description, whenNeeded, selected, onPres
 
 function Chip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
   return (
-    <Pressable onPress={onPress} className={selected ? "px-4 py-2 rounded-full bg-blue-600 mr-2 mb-2" : "px-4 py-2 rounded-full bg-gray-100 mr-2 mb-2"}>
-      <Text className={selected ? "text-white font-medium" : "text-gray-900 font-medium"}>{label}</Text>
+    <Pressable onPress={onPress} className={selected ? "px-4 py-2 rounded-full bg-blue-600 mr-2 mb-2" : "px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-700 mr-2 mb-2"}>
+      <Text className={selected ? "text-white font-medium" : "text-gray-900 dark:text-gray-100 font-medium"}>{label}</Text>
     </Pressable>
   );
 }
@@ -78,23 +78,23 @@ export default function ComplianceScreen({ navigation }: NativeStackScreenProps<
   const { compliance, setCompliance } = useInterviewStore();
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white" style={{ paddingTop: insets.top }}>
+    <ScrollView contentInsetAdjustmentBehavior="automatic" className="flex-1 bg-white dark:bg-gray-900" style={{ paddingTop: insets.top }}>
       <View className="px-5 py-6 gap-6">
         <View>
-          <Text className="text-2xl font-bold text-gray-900 mb-2">Legal Requirements</Text>
-          <Text className="text-gray-600">Most apps don't need special compliance, but some industries have requirements</Text>
+          <Text className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Legal Requirements</Text>
+          <Text className="text-gray-600 dark:text-gray-400">Most apps don't need special compliance, but some industries have requirements</Text>
         </View>
 
-        <View className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <View className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-4">
           <View className="flex-row items-center gap-2 mb-2">
             <Ionicons name="information-circle" size={20} color="#2563eb" />
-            <Text className="text-blue-900 font-semibold">Don't worry!</Text>
+            <Text className="text-blue-900 dark:text-blue-100 font-semibold">Don't worry!</Text>
           </View>
-          <Text className="text-blue-800 text-sm">Most simple apps don't need any of these. Select only what applies to your specific situation.</Text>
+          <Text className="text-blue-800 dark:text-blue-200 text-sm">Most simple apps don't need any of these. Select only what applies to your specific situation.</Text>
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-3">Privacy & Data Protection</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-3">Privacy & Data Protection</Text>
           
           <ComplianceCard
             icon="shield-outline"
@@ -128,25 +128,25 @@ export default function ComplianceScreen({ navigation }: NativeStackScreenProps<
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Business Security Standards</Text>
-          <Text className="text-gray-600 text-sm mb-3">Do you need enterprise-grade security certification?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Business Security Standards</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">Do you need enterprise-grade security certification?</Text>
           <View className="flex-row flex-wrap">
             <Chip label="Not needed" selected={compliance.soc2 === false} onPress={() => setCompliance({ soc2: false })} />
             <Chip label="Nice to have" selected={compliance.soc2 === "nice_to_have"} onPress={() => setCompliance({ soc2: "nice_to_have" })} />
             <Chip label="Required" selected={compliance.soc2 === true} onPress={() => setCompliance({ soc2: true })} />
           </View>
-          <Text className="text-gray-500 text-xs mt-2">SOC2 is mainly for B2B apps that handle sensitive business data</Text>
+          <Text className="text-gray-500 dark:text-gray-400 text-xs mt-2">SOC2 is mainly for B2B apps that handle sensitive business data</Text>
         </View>
 
         <View>
-          <Text className="text-lg font-semibold text-gray-900 mb-2">Data Storage Location</Text>
-          <Text className="text-gray-600 text-sm mb-3">Where should your user data be stored?</Text>
+          <Text className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Data Storage Location</Text>
+          <Text className="text-gray-600 dark:text-gray-400 text-sm mb-3">Where should your user data be stored?</Text>
           <View className="flex-row flex-wrap">
             <Chip label="United States" selected={compliance.data_residency === "us"} onPress={() => setCompliance({ data_residency: "us" })} />
             <Chip label="Europe only" selected={compliance.data_residency === "eu"} onPress={() => setCompliance({ data_residency: "eu" })} />
             <Chip label="Anywhere" selected={compliance.data_residency === "global"} onPress={() => setCompliance({ data_residency: "global" })} />
           </View>
-          <Text className="text-gray-500 text-xs mt-2">Some countries require data to stay within their borders</Text>
+          <Text className="text-gray-500 dark:text-gray-400 text-xs mt-2">Some countries require data to stay within their borders</Text>
         </View>
 
         <View className="pt-4">

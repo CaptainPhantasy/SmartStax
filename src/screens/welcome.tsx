@@ -41,7 +41,7 @@ export default function WelcomeScreen({ navigation }: NativeStackScreenProps<Roo
         <View className="items-center gap-3">
           <Pressable onLongPress={() => navigation.navigate("adminCatalog")} className="flex-row items-center gap-3">
             <Ionicons name="phone-portrait-outline" size={32} color="#2563eb" />
-            <Text className="text-3xl font-bold text-gray-900 dark:text-gray-100">Smart Stack</Text>
+            <Text className="text-3xl font-bold text-gray-900 dark:text-gray-100">SmartStax</Text>
           </Pressable>
           <Text className="text-lg text-gray-600 dark:text-gray-300 text-center">Find the best tools to build your app</Text>
           <Text className="text-gray-500 dark:text-gray-400 text-center">Get personalized recommendations with costs and a getting started guide</Text>
