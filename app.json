@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "SmartStack",
+    "slug": "smartstack",
+    "scheme": "smartstack",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "owner": "captainphantasy",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.captainphantasy.smartstack",
+      "buildNumber": "1"
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "package": "com.captainphantasy.smartstack",
+      "versionCode": 1
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6425e34-9acb-457b-99f7-38ce189691b6"
+      }
+    }
+  }
+}
