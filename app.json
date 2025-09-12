@@ -8,6 +8,9 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "owner": "legacyaispace",
+    "plugins": [
+      "./expo-plugins/withIOSDeploymentTarget.js"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.legacyaispace.smartstacker",
