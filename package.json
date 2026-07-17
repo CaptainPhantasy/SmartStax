@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
+    "postinstall": "cd node_modules && ln -sf react-native-worklets-core react-native-worklets && cd ..",
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
@@ -21,24 +22,28 @@
     "@react-navigation/native": "^7.1.6",
     "@react-navigation/native-stack": "^7.3.2",
     "clsx": "^2.1.1",
-    "expo": "53.0.22",
-    "expo-constants": "~17.1.5",
+    "expo": "~53.0.27",
+    "expo-constants": "~17.1.8",
+    "expo-file-system": "~18.1.11",
     "expo-font": "~13.3.0",
     "expo-linear-gradient": "~14.1.4",
     "expo-linking": "~7.1.4",
+    "expo-sharing": "~13.1.5",
     "expo-splash-screen": "~0.30.8",
     "expo-status-bar": "~2.2.3",
     "nativewind": "^4.1.23",
     "openai": "^4.89.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-native": "0.79.5",
+    "react-native": "0.79.6",
     "react-native-gesture-handler": "~2.24.0",
+    "react-native-get-random-values": "^1.11.0",
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-svg": "15.11.2",
     "react-native-web": "~0.20.0",
+    "react-native-worklets-core": "^1.6.2",
     "tailwind-merge": "^3.2.0",
     "tailwindcss": "^3.4.17",
     "zustand": "^5.0.4"
@@ -47,6 +52,17 @@
     "@babel/core": "^7.25.2",
     "@types/react": "~19.0.10",
     "typescript": "~5.8.3"
+  },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "@anthropic-ai/sdk",
+          "clsx",
+          "openai"
+        ]
+      }
+    }
   },
   "private": true
 }
