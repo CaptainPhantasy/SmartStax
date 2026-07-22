@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "gates": [
+    {
+      "name": "expo-recovery-checks",
+      "command": [
+        "sh",
+        "-c",
+        "npm ci && npx tsc --noEmit && npx expo-doctor && npm audit --omit=dev --audit-level=high"
+      ],
+      "required": true
+    }
+  ],
+  "include": [
+    ".proofline.json",
+    ".gitignore",
+    "babel.config.js",
+    "eas.json",
+    "package.json",
+    "package-lock.json",
+    "src/navigation/AppNavigator.tsx"
+  ],
+  "deny": [
+    ".env",
+    ".env.*",
+    "*.ipa",
+    "*.pem",
+    "*.key",
+    "node_modules/**",
+    ".git/**",
+    ".harness/**",
+    ".pi/**",
+    ".omp/**",
+    ".supercache/**",
+    ".floyd/**"
+  ],
+  "baseBranch": "main",
+  "publish": true
+}

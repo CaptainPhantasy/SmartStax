@@ -33,7 +33,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function AppNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerLargeTitle: true }} initialRouteName="welcome">
-      <Stack.Screen name="welcome" component={WelcomeScreen} options={{ title: "Smart Stack" }} />
+      <Stack.Screen name="welcome" component={WelcomeScreen} options={{ title: "SmartStax" }} />
       <Stack.Screen name="profile" component={ProfileScreen} options={{ title: "Your Profile" }} />
       <Stack.Screen name="productBrief" component={ProductBriefScreen} options={{ title: "Product Brief" }} />
       <Stack.Screen name="compliance" component={ComplianceScreen} options={{ title: "Compliance" }} />

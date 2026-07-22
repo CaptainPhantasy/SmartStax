@@ -39,4 +39,6 @@ android/
 
 # EAS Build
 credentials.json
+.env
 .env.local
+*.ipa
